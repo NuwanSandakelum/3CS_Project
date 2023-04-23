@@ -1,8 +1,12 @@
 import React from "react";
 
+import { useNavigate } from "react-router-dom";
 
 export default function UserCard(props) {
-  const { firstName, email, avatar } = props;
+  const { id, firstName, email, avatar } = props;
+
+  // navigate pages
+  let navigate = useNavigate();
 
   return (
     <>
@@ -13,6 +17,9 @@ export default function UserCard(props) {
           margin: "10px",
           borderRadius: "10px",
           cursor: "pointer",
+        }}
+        onClick={() => {
+          navigate(`/profile/${id}`);
         }}
       >
         <div className="avatar">
